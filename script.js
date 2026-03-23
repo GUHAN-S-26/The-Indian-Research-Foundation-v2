@@ -14,10 +14,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.getElementById('nav-links');
 
     if (menuToggle && navLinks) {
+        menuToggle.setAttribute('aria-expanded', 'false');
+
         menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+            const isOpen = navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active', isOpen);
+            menuToggle.setAttribute('aria-expanded', String(isOpen));
             const icon = menuToggle.querySelector('i');
-            if (navLinks.classList.contains('active')) {
+            if (isOpen) {
                 icon.classList.replace('ph-list', 'ph-x');
             } else {
                 icon.classList.replace('ph-x', 'ph-list');
@@ -27,9 +31,33 @@ document.addEventListener('DOMContentLoaded', () => {
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
+                menuToggle.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
                 const icon = menuToggle.querySelector('i');
                 if (icon) icon.classList.replace('ph-x', 'ph-list');
             });
+        });
+
+        document.addEventListener('click', (event) => {
+            const clickedInsideMenu = navLinks.contains(event.target);
+            const clickedToggle = menuToggle.contains(event.target);
+            if (!clickedInsideMenu && !clickedToggle && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                const icon = menuToggle.querySelector('i');
+                if (icon) icon.classList.replace('ph-x', 'ph-list');
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 992 && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                const icon = menuToggle.querySelector('i');
+                if (icon) icon.classList.replace('ph-x', 'ph-list');
+            }
         });
     }
 
