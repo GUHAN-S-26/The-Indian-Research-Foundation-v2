@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3. Glass Navbar Scroll Effect
     const navbar = document.getElementById('navbar');
-    
+
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
@@ -43,60 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
             navbar.classList.remove('scrolled');
         }
     }, { passive: true });
-
-    // 4. Typing Text Effect
-    const typingElement = document.querySelector('.typing-text');
-    if (typingElement) {
-        const text = typingElement.getAttribute('data-text') || '';
-        let index = 0;
-        typingElement.textContent = '';
-
-        function typeCharacter() {
-            if (index < text.length) {
-                typingElement.textContent += text.charAt(index);
-                index++;
-                setTimeout(typeCharacter, 70 + Math.random() * 50);
-            }
-        }
-
-        // Start typing after a short delay for the title entrance animation
-        setTimeout(typeCharacter, 1200);
-    }
-
-    // 5. Counter Animation (Fixed - now observes hero stat cards)
-    const counters = document.querySelectorAll('.counter');
-    let counted = false;
-
-    function countUp() {
-        counters.forEach(counter => {
-            const target = +counter.getAttribute('data-target');
-            const increment = target / 60;
-            let current = 0;
-
-            const update = () => {
-                current += increment;
-                if (current < target) {
-                    counter.innerText = Math.ceil(current);
-                    requestAnimationFrame(update);
-                } else {
-                    counter.innerText = target;
-                }
-            };
-            update();
-        });
-    }
-
-    // Observe the first stat card instead of missing #metrics
-    const statSection = document.querySelector('.bento-hero-stat1');
-    if (statSection && counters.length > 0) {
-        const observer = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting && !counted) {
-                countUp();
-                counted = true;
-            }
-        }, { threshold: 0.3 });
-        observer.observe(statSection);
-    }
 
     // 6. Active Nav Highlight on Scroll (Intersection Observer)
     const sections = document.querySelectorAll('section[id]');
@@ -125,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 7. Neo-card Tilt Effect (3D Perspective on Hover)
     const tiltCards = document.querySelectorAll('[data-tilt]');
-    
+
     tiltCards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
@@ -133,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const y = e.clientY - rect.top;
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
-            
+
             const rotateX = ((y - centerY) / centerY) * -6;
             const rotateY = ((x - centerX) / centerX) * 6;
 
@@ -147,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 8. Parallax Blob Movement on Mouse
     const blobs = document.querySelectorAll('.blob-bg');
-    
+
     if (blobs.length > 0 && window.innerWidth > 768) {
         window.addEventListener('mousemove', (e) => {
             const x = (e.clientX / window.innerWidth - 0.5) * 2;
@@ -183,13 +129,13 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const btn = form.querySelector('button[type="submit"]');
             const originalHTML = btn.innerHTML;
-            
+
             // Success State (Matrix green)
             btn.innerHTML = 'Data Transmitted <i class="ph-bold ph-check-circle"></i>';
             btn.style.background = 'var(--green-cyber)';
             btn.style.color = '#050B14';
             btn.style.boxShadow = '0 0 20px rgba(0, 230, 118, 0.4)';
-            
+
             setTimeout(() => {
                 form.reset();
                 btn.innerHTML = originalHTML;
