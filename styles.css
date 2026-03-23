@@ -964,7 +964,7 @@ ul {
 .vector-cell {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 .vector-cell:hover {
@@ -2788,7 +2788,6 @@ ul {
         font-size: 0.75rem;
     }
 }
-
 
 
 
