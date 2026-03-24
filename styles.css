@@ -617,9 +617,11 @@ ul {
     0% {
         box-shadow: 0 0 0 0 rgba(135, 206, 250, 0.7);
     }
+
     70% {
         box-shadow: 0 0 0 6px rgba(135, 206, 250, 0);
     }
+
     100% {
         box-shadow: 0 0 0 0 rgba(135, 206, 250, 0);
     }
@@ -663,17 +665,24 @@ ul {
 }
 
 @keyframes floatLegacy {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(30px, 30px); }
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(30px, 30px);
+    }
 }
 
 @keyframes buttonPulse {
     0% {
         box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
     }
+
     50% {
         box-shadow: 0 0 25px rgba(255, 255, 255, 0.5), 0 0 50px rgba(173, 216, 230, 0.3);
     }
+
     100% {
         box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
     }
@@ -1280,7 +1289,7 @@ ul {
     transition: var(--trans-fast);
 }
 
-.cyber-input select:focus ~ .select-arrow {
+.cyber-input select:focus~.select-arrow {
     color: var(--saffron-neon);
     transform: rotate(180deg);
 }
@@ -1569,22 +1578,24 @@ ul {
     .cyber-title {
         font-size: 2.5rem;
     }
+
     .hero-title {
         font-size: 3rem;
     }
 }
 
 @media (max-width: 992px) {
+
     /* Navbar */
     .menu-toggle {
         display: inline-flex;
         z-index: 100;
     }
-    
+
     .nav-actions .btn-glow {
         display: none;
     }
-    
+
     .nav-links {
         position: absolute;
         top: calc(100% + 0.75rem);
@@ -1624,7 +1635,7 @@ ul {
         background: rgba(96, 165, 250, 0.14);
         color: var(--text-primary);
     }
-    
+
     .nav-links.active {
         transform: translateY(0) scale(1);
         opacity: 1;
@@ -1635,7 +1646,7 @@ ul {
     .services-track {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .about-split,
     .contact-grid {
         grid-template-columns: 1fr;
@@ -1696,7 +1707,8 @@ ul {
 
     .timeline-line {
         top: 0;
-        left: 25px; /* Centers behind the 50px icon */
+        left: 25px;
+        /* Centers behind the 50px icon */
         width: 2px;
         height: 100%;
         background: linear-gradient(180deg, transparent, var(--glass-border), transparent);
@@ -1733,7 +1745,7 @@ ul {
         margin: 0 1rem 4rem !important;
     }
 
-    .prefooter-cta > div > div {
+    .prefooter-cta>div>div {
         flex-direction: column;
     }
 
@@ -1775,11 +1787,11 @@ ul {
     .hero-title {
         font-size: 2rem;
     }
-    
+
     .glass-panel {
         padding: 1.5rem;
     }
-    
+
     .pub-item {
         flex-direction: column;
         align-items: flex-start;
@@ -2412,34 +2424,65 @@ ul {
         padding: 0.5rem 1rem;
     }
 }
+
 /* Add extra mobile styling */
 @media (max-width: 480px) {
-  .container { padding: 0 1rem; }
-  .cyber-title { font-size: 1.8rem; }
-  .hero-actions { flex-direction: column; width: 100%; }
-  .btn-cyber-primary, .btn-cyber-outline { width: 100%; text-align: center; }
-    .section-padding { padding: var(--space-section-mobile) 0; }
-        #services,
-        #research,
-        #process,
-        #publications,
-        #about,
-        #contact {
-                padding-top: var(--space-section-mobile);
-                padding-bottom: var(--space-section-mobile);
-        }
-  .glass-panel { padding: 1.5rem; }
+    .container {
+        padding: 0 1rem;
+    }
+
+    .cyber-title {
+        font-size: 1.8rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn-cyber-primary,
+    .btn-cyber-outline {
+        width: 100%;
+        text-align: center;
+    }
+
+    .section-padding {
+        padding: var(--space-section-mobile) 0;
+    }
+
+    #services,
+    #research,
+    #process,
+    #publications,
+    #about,
+    #contact {
+        padding-top: var(--space-section-mobile);
+        padding-bottom: var(--space-section-mobile);
+    }
+
+    .glass-panel {
+        padding: 1.5rem;
+    }
 }
 
 
 
 @media (max-width: 380px) {
-  .bento-card { padding: 1rem; }
-  .hero-badge { font-size: 0.75rem; }
-  .stats-matrix { grid-template-columns: 1fr; }
+    .bento-card {
+        padding: 1rem;
+    }
+
+    .hero-badge {
+        font-size: 0.75rem;
+    }
+
+    .stats-matrix {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 414px) {
+
     .container,
     .nav-container {
         padding: 0 0.75rem;
@@ -2619,6 +2662,7 @@ ul {
 }
 
 @media (max-width: 360px) {
+
     .container,
     .nav-container {
         padding: 0 0.75rem;
@@ -2861,6 +2905,25 @@ ul {
     border-radius: 20px;
 }
 
+.founder-badge {
+    position: absolute;
+    right: 1rem;
+    left: auto;
+    bottom: 1rem;
+}
+
+.font-visionary {
+    font-size: 1.8rem;
+}
+
+.leadership-text {
+    display: block;
+    color: var(--saffron-neon);
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
 @media (min-width: 993px) {
     .founder-image-wrapper {
         height: 100%;
@@ -2886,7 +2949,7 @@ ul {
     border-radius: 12px;
     z-index: 1;
     position: relative;
-    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.6));
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.6));
     transition: transform 0.6s cubic-bezier(0.1, 0.7, 0.1, 1);
 }
 
@@ -2969,12 +3032,68 @@ ul {
 @media (max-width: 992px) {
     .founder-grid {
         grid-template-columns: 1fr;
+        gap: 2rem;
     }
+
     .founder-image-wrapper {
         max-width: 500px;
         margin: 0 auto 2rem;
     }
 }
 
+@media (max-width: 768px) {
+    .founder-name {
+        font-size: 1.8rem;
+    }
 
+    .founder-bio p {
+        font-size: 1rem;
+    }
 
+    .disclaimer-box {
+        margin-top: 1.5rem;
+        padding: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .founder-grid {
+        gap: 1.5rem;
+    }
+
+    .founder-name {
+        font-size: 1.5rem;
+    }
+
+    .founder-bio p {
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+    }
+    
+    .founder-role {
+        font-size: 0.9rem;
+    }
+
+    .expertise-tags .tags span {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    .disclaimer-box {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+    
+    .disclaimer-box i {
+        font-size: 1.5rem;
+    }
+
+    .font-visionary {
+        font-size: 1.3rem;
+    }
+
+    .leadership-text {
+        font-size: 0.75rem;
+    }
+}
