@@ -56,9 +56,9 @@
     --space-lg: 2rem;
     --space-xl: 2.5rem;
     --space-2xl: 4rem;
-    --space-section-desktop: 8rem;
-    --space-section-tablet: 5rem;
-    --space-section-mobile: 3rem;
+    --space-section-desktop: 5rem;
+    --space-section-tablet: 3.5rem;
+    --space-section-mobile: 2rem;
 
     /* Effect Intensity Controls */
     --hero-glow-blur: 56px;
@@ -137,6 +137,17 @@ ul {
 
 .section-padding {
     padding: var(--space-section-desktop) 0;
+}
+
+/* Keep core content sections on a single spacing rhythm */
+#services,
+#research,
+#process,
+#publications,
+#about,
+#contact {
+    padding-top: var(--space-section-desktop);
+    padding-bottom: var(--space-section-desktop);
 }
 
 /* Background Animated Blobs */
@@ -878,15 +889,15 @@ ul {
     border: 1px solid var(--glass-border);
     border-radius: 16px;
     padding: var(--space-xl) var(--space-lg);
-    transition: var(--trans-smooth);
+    transition: transform 0.3s cubic-bezier(0.1, 0.7, 0.1, 1), box-shadow 0.3s ease, border-color 0.3s ease;
     z-index: 1;
     overflow: hidden;
 }
 
 .neo-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--saffron-neon);
-    box-shadow: 0 0 30px rgba(173, 216, 230, 0.2), 0 20px 40px rgba(0, 0, 0, 0.4);
+    transform: scale(0.98);
+    border-color: rgba(42, 117, 255, 0.5);
+    box-shadow: inset 0 0 30px rgba(42, 117, 255, 0.15), 0 8px 15px rgba(0, 0, 0, 0.3);
 }
 
 .card-glow {
@@ -1011,8 +1022,8 @@ ul {
 }
 
 .highlight-cell {
-    grid-column: 2 / 4;
-    background: linear-gradient(135deg, rgba(5, 11, 20, 0.9) 0%, rgba(42, 117, 255, 0.1) 100%);
+    grid-column: auto;
+    background: var(--glass-bg);
 }
 
 /* --- WORKFLOW TIMELINE --- */
@@ -1378,6 +1389,11 @@ ul {
     margin: 1rem 0 0.5rem;
 }
 
+.footer-brand-logo {
+    margin-bottom: 1.25rem;
+    text-decoration: none;
+}
+
 .footer-logo {
     height: 50px;
     width: 50px;
@@ -1637,6 +1653,16 @@ ul {
         padding: var(--space-section-tablet) 0;
     }
 
+    #services,
+    #research,
+    #process,
+    #publications,
+    #about,
+    #contact {
+        padding-top: var(--space-section-tablet);
+        padding-bottom: var(--space-section-tablet);
+    }
+
     .cyber-title {
         font-size: 2rem;
     }
@@ -1658,7 +1684,7 @@ ul {
     }
 
     .highlight-cell {
-        grid-column: 1 / -1;
+        grid-column: auto;
     }
 
     /* Setup vertically stacked workflow timeline */
@@ -1721,17 +1747,17 @@ ul {
 
     .footer-columns {
         grid-template-columns: 1fr;
-        text-align: center;
+        text-align: left;
     }
 
     .footer-brand {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
     }
 
     .social-grid {
-        justify-content: center;
+        justify-content: flex-start;
     }
 
     .hero-actions {
@@ -1786,23 +1812,23 @@ ul {
 
 /* --- 5. SERVICE CARD ENHANCED HOVER --- */
 .neo-card {
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-        box-shadow 0.4s ease,
-        border-color 0.4s ease;
+    transition: transform 0.3s cubic-bezier(0.1, 0.7, 0.1, 1),
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
     will-change: transform;
 }
 
 .neo-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    border-color: rgba(42, 117, 255, 0.4);
-    box-shadow: 0 16px 40px rgba(42, 117, 255, 0.12), 0 0 0 1px rgba(42, 117, 255, 0.16);
+    transform: scale(0.98);
+    border-color: rgba(42, 117, 255, 0.5);
+    box-shadow: inset 0 0 30px rgba(42, 117, 255, 0.15), 0 8px 15px rgba(0, 0, 0, 0.3);
 }
 
 .neo-card:hover .icon-hexagon {
-    transform: rotate(45deg) scale(1.08);
-    border-color: var(--blue-electric);
-    box-shadow: 0 0 16px rgba(42, 117, 255, 0.22);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: scale(0.95);
+    border-color: var(--saffron-neon);
+    box-shadow: 0 0 25px var(--blue-electric), inset 0 0 10px rgba(42, 117, 255, 0.3);
+    transition: all 0.3s cubic-bezier(0.1, 0.7, 0.1, 1);
 }
 
 .neo-card:hover h4 {
@@ -2161,7 +2187,7 @@ ul {
     }
 
     .highlight-cell {
-        grid-column: 1 / -1;
+        grid-column: auto;
     }
 
     .about-split,
@@ -2393,6 +2419,15 @@ ul {
   .hero-actions { flex-direction: column; width: 100%; }
   .btn-cyber-primary, .btn-cyber-outline { width: 100%; text-align: center; }
     .section-padding { padding: var(--space-section-mobile) 0; }
+        #services,
+        #research,
+        #process,
+        #publications,
+        #about,
+        #contact {
+                padding-top: var(--space-section-mobile);
+                padding-bottom: var(--space-section-mobile);
+        }
   .glass-panel { padding: 1.5rem; }
 }
 
@@ -2617,7 +2652,17 @@ ul {
     }
 
     .section-padding {
-        padding: 2.6rem 0;
+        padding: 1.5rem 0;
+    }
+
+    #services,
+    #research,
+    #process,
+    #publications,
+    #about,
+    #contact {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
     }
 
     .glass-panel {
@@ -2686,7 +2731,7 @@ ul {
 
     .footer-brand p {
         max-width: 34ch;
-        margin: 0 auto;
+        margin: 0;
         line-height: 1.55;
     }
 
@@ -2707,7 +2752,7 @@ ul {
     }
 
     .social-grid {
-        justify-content: center;
+        justify-content: flex-start;
         gap: 0.8rem;
     }
 
@@ -2750,7 +2795,7 @@ ul {
 
 @media (max-width: 360px) {
     .cyber-footer {
-        padding-top: 2.6rem;
+        padding-top: 1.5rem;
         padding-bottom: calc(4.25rem + env(safe-area-inset-bottom, 0px));
     }
 
