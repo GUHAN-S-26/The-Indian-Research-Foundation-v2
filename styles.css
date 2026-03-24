@@ -2834,5 +2834,147 @@ ul {
     }
 }
 
+/* ==========================================================================
+   About the Founder Section
+   ========================================================================== */
+
+.founder-section {
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.founder-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.founder-image-wrapper {
+    position: relative;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+@media (min-width: 993px) {
+    .founder-image-wrapper {
+        height: 100%;
+        min-height: 500px;
+    }
+}
+
+.founder-glow {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(circle, var(--saffron-glow) 0%, transparent 70%);
+    filter: blur(60px);
+    opacity: 0.4;
+    animation: floatLegacy 6s ease-in-out infinite alternate;
+    z-index: 0;
+}
+
+.founder-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    z-index: 1;
+    position: relative;
+    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.6));
+    transition: transform 0.6s cubic-bezier(0.1, 0.7, 0.1, 1);
+}
+
+.founder-image-wrapper:hover .founder-img {
+    transform: scale(1.03);
+}
+
+.founder-name {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.founder-bio p {
+    color: var(--text-mutated);
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.expertise-tags .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.expertise-tags .tags span {
+    background: rgba(125, 211, 252, 0.08);
+    border: 1px solid rgba(125, 211, 252, 0.25);
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--saffron-neon);
+    backdrop-filter: blur(5px);
+    transition: var(--trans-fast);
+}
+
+.expertise-tags .tags span:hover {
+    background: rgba(125, 211, 252, 0.2);
+    border-color: var(--saffron-neon);
+    transform: translateY(-3px);
+    box-shadow: var(--glow-saffron);
+}
+
+.disclaimer-box {
+    margin-top: 2.5rem;
+    display: flex;
+    gap: 1rem;
+    background: rgba(42, 117, 255, 0.05);
+    border: 1px solid rgba(42, 117, 255, 0.2);
+    padding: 1.5rem;
+    border-radius: 15px;
+    align-items: flex-start;
+    transition: var(--trans-fast);
+}
+
+.disclaimer-box:hover {
+    background: rgba(42, 117, 255, 0.08);
+    border-color: rgba(42, 117, 255, 0.4);
+}
+
+.disclaimer-box i {
+    font-size: 1.8rem;
+    color: var(--blue-electric);
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+}
+
+.disclaimer-box p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-mutated);
+}
+
+.disclaimer-box strong {
+    color: var(--text-primary);
+}
+
+@media (max-width: 992px) {
+    .founder-grid {
+        grid-template-columns: 1fr;
+    }
+    .founder-image-wrapper {
+        max-width: 500px;
+        margin: 0 auto 2rem;
+    }
+}
+
 
 
